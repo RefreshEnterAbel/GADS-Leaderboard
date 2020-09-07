@@ -3,4 +3,8 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="submit">Submit</string>
+    <string name="leaderbord">LEADERBORD</string>
+    <string name="learner_leader">Learner Leader</string>
+    <string name="skill_iq_leader">Skill IQ Leader</string>
 </resources>
