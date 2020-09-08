@@ -1,23 +1,21 @@
 package com.example.gadsleaderboard.ui;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.gadsleaderboard.R;
 import com.example.gadsleaderboard.adapter.HoursLeaderRecyclerAdapter;
-import com.example.gadsleaderboard.adapter.SkillIQLeaderRecyclerAdapter;
 import com.example.gadsleaderboard.api.HeroAppClient;
 import com.example.gadsleaderboard.api.ServiceGenerator;
 import com.example.gadsleaderboard.data.HoursLeader;
-import com.example.gadsleaderboard.data.SkillLeader;
 
 import java.util.List;
 
@@ -53,6 +51,7 @@ public class LeadingLeadersFragment extends Fragment {
             @Override
             public void onFailure(Call<List<HoursLeader>> call, Throwable t) {
                 Log.d(TAG, "onFailure: fail bad "+ t);
+                Toast.makeText(getContext(),"Please check Your Internet Setting ",Toast.LENGTH_LONG).show();
             }
         });
     }
