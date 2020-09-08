@@ -60,11 +60,13 @@
             android:background="@android:color/transparent">
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/learner_leader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/learner_leader" />
 
             <com.google.android.material.tabs.TabItem
+                android:id="@+id/skill_leader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/skill_iq_leader" />
@@ -74,7 +76,9 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="107dp"
+        android:background="@color/colorAccent">
 
     </androidx.viewpager.widget.ViewPager>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
