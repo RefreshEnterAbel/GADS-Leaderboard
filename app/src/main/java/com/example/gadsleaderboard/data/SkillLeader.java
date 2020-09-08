@@ -12,6 +12,8 @@ public class SkillLeader {
         this.country = country;
         this.badgeUrl = badgeUrl;
     }
+    public SkillLeader() {
+    }
 
     public int getScore() {
         return score;

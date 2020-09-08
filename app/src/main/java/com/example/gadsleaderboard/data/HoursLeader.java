@@ -12,6 +12,8 @@ public class HoursLeader {
         this.country = country;
         this.badgeUrl = badgeUrl;
     }
+    public HoursLeader() {
+    }
 
     public String getBadgeUrl() {
         return badgeUrl;
