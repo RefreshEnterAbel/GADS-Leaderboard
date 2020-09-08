@@ -1,6 +1,8 @@
 package com.example.gadsleaderboard;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.gadsleaderboard.adapter.PagerAdapter;
 import com.google.android.material.tabs.TabItem;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tabs);
         TabItem leaderLearner = findViewById(R.id.learner_leader);
         TabItem skillLeader = findViewById(R.id.skill_leader);
+        Button submitButton = findViewById(R.id.submit_btn);
         PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         final ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(pagerAdapter);
@@ -37,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
             }
         });
