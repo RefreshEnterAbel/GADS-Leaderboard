@@ -14,5 +14,4 @@
     <string name="email_address_hint">Email Address</string>
     <string name="github_link_hint">Project On GITHUB (link)</string>
     <string name="project_submission">Project Submission</string>
-    <string name="submit">Submit</string>
 </resources>
