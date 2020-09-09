@@ -46,7 +46,7 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView4"
-                    android:text="@string/submission_not_successfull" />
+                    android:text="@string/submission_not_successful" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

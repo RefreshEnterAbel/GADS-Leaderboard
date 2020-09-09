@@ -1,14 +1,9 @@
 <resources>
-    <string name="app_name">GADS Leaderboard</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="app_name">GADS LeaderBoard</string>
     <string name="submit">Submit</string>
     <string name="leaderbord">LEADERBORD</string>
     <string name="learner_leader">Learner Leader</string>
     <string name="skill_iq_leader">Skill IQ Leader</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="first_name_hint">First Name</string>
     <string name="last_name_hint">Last Name</string>
     <string name="email_address_hint">Email Address</string>
@@ -17,5 +12,5 @@
     <string name="are_yor_sure">Are Yor Sure ?</string>
     <string name="yes">Yes</string>
     <string name="submission_successful">Submission Successful</string>
-    <string name="submission_not_successfull">Submission not Successfull</string>
+    <string name="submission_not_successful">Submission not Successful</string>
 </resources>
