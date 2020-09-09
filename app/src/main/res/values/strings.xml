@@ -14,4 +14,8 @@
     <string name="email_address_hint">Email Address</string>
     <string name="github_link_hint">Project On GITHUB (link)</string>
     <string name="project_submission">Project Submission</string>
+    <string name="are_yor_sure">Are Yor Sure ?</string>
+    <string name="yes">Yes</string>
+    <string name="submission_successful">Submission Successful</string>
+    <string name="submission_not_successfull">Submission not Successfull</string>
 </resources>
