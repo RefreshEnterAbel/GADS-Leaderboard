@@ -1,60 +1,59 @@
 package com.example.gadsleaderboard.ui;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gadsleaderboard.R;
+import com.example.gadsleaderboard.adapter.HoursLeaderRecyclerAdapter;
+import com.example.gadsleaderboard.api.HeroAppClient;
+import com.example.gadsleaderboard.api.ServiceGenerator;
+import com.example.gadsleaderboard.data.HoursLeader;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link LeadingLeadersFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class LeadingLeadersFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public LeadingLeadersFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment LearingLeaders.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static LeadingLeadersFragment newInstance(String param1, String param2) {
-        LeadingLeadersFragment fragment = new LeadingLeadersFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    public final String TAG = getClass().getSimpleName();
+    private HeroAppClient mClient;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        Log.d(TAG, "onCreate: run LeadingLeadersFragment ");
+        mClient = ServiceGenerator.createService(HeroAppClient.class);
+
+        Call<List<HoursLeader>> call = mClient.hoursLeader();
+        call.enqueue(new Callback<List<HoursLeader>>() {
+
+            @Override
+            public void onResponse(Call<List<HoursLeader>> call, Response<List<HoursLeader>> response) {
+                Log.d(TAG, "onResponse: ok good " +response.body());
+                RecyclerView learnerLeader = getView().findViewById(R.id.learner_leader_list);
+                List<HoursLeader> hoursLeaders = response.body();
+                GridLayoutManager learnerLeaderGridLayoutManager =  new GridLayoutManager(getContext(),1);
+                learnerLeader.setLayoutManager(learnerLeaderGridLayoutManager);
+                HoursLeaderRecyclerAdapter adapter = new HoursLeaderRecyclerAdapter(getContext(),hoursLeaders);
+                learnerLeader.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<HoursLeader>> call, Throwable t) {
+                Log.d(TAG, "onFailure: fail bad "+ t);
+                Toast.makeText(getContext(),"Please check Your Internet Setting ",Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
