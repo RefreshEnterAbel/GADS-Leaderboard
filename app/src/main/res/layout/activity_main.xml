@@ -40,7 +40,7 @@
                 <Button
                     android:id="@+id/submit_btn"
                     android:layout_width="100dp"
-                    android:layout_height="35dp"
+                    android:layout_height="30dp"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/round_background"
                     android:text="@string/submit"
